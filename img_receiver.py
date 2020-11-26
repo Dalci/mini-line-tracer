@@ -7,13 +7,11 @@ from os import path
 from configparser import ConfigParser
 from datetime import date
  
-CONFIG_INI = 'config.ini'
-
 # read config file and get initialization info
 try:
     current_dir = path.dirname(path.abspath(__file__))
     config = ConfigParser()
-    config.read(path.join(current_dir,CONFIG_INI))
+    config.read(path.join(current_dir,'config.ini'))
     # assign network for check if access is valid
     network = config['NETWORK'] 
 except:
