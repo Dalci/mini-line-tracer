@@ -2,16 +2,17 @@ __author__ = 'will'
 
 from keras.models import Sequential
 from keras.layers import Dense
-from sklearn.model_selection import train_test_split
+#from sklearn.model_selection import train_test_split
 
 import numpy as np
 import pandas as pd
 import tensorflow as tf
-import pickle
+from tensorflow.python.keras.backend import conv2d
+#import pickle
 
 outputs = 1
 
-from get_image import *
+from get_image_self import *
 
 trX,trY = get_training_data()
 teX,teY = get_test_data()
@@ -21,7 +22,7 @@ np.random.seed(seed)
 tf.random.set_seed(seed)
 
 model=Sequential()
-model.add(Dense(512, input_dim=np.shape(trX)[1], activation='relu'))
+model.add(Dense(512, input_dim=np.shape(trX), activation='relu'))
 model.add(Dense(64, activation='relu'))
 model.add(Dense(1))
 
@@ -39,7 +40,7 @@ for i in range(1000):
 
 def get_direction(img):
     print(img.shape)
-#    img = np.array([np.reshape(img,img.shape**2)])
+    #img = np.array([np.reshape(img, img.shape**2)])
     ret =  model.predict(np.array([img]))
     return ret
 
