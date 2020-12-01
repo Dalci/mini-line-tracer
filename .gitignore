@@ -1,5 +1,10 @@
+# env directories
+__pycache__
 .vscode
 
-*.ini
+# dataset
 sample lane
-__pycache__
+cvt
+
+# config file
+*.ini

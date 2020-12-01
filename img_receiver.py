@@ -1,3 +1,8 @@
+'''
+server-side code to receive images from raspberry pi
+
+Author: Jeong Sangjun
+'''
 import io
 import socket
 import struct

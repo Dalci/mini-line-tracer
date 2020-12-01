@@ -1,7 +1,7 @@
 import pickle
 import numpy as np
 
-data = pickle.load( open( "list.p", "rb" ), encoding="latin1" )
+data = pickle.load( open( "created_lane.p", "rb" ), encoding="latin1" )
 n_images = len(data)
 test, training = data[0:int(n_images/3)], data[int(n_images/3):]
 
@@ -21,6 +21,6 @@ def get_test_data():
         teY[i] = float(data[0])
     return teX,teY
 
-trX, trY = get_training_data()
-
-print(trX)
+if __name__ == '__main__':
+    trX, trY = get_training_data()
+    print(trX)
