@@ -24,7 +24,7 @@ model.add(Dense(1))
 model.compile(loss='mean_squared_error', optimizer='adam')
 #model.compile(loss='sparse_categorical_crossentropy', optimizer='adam')
 
-model.fit(trX, trY, epochs=2, batch_size=1)
+model.fit(trX, trY, epochs=30, batch_size=1)
 
 Y_prediction = model.predict(teX).flatten()
 
@@ -49,3 +49,5 @@ print(dir[0][0])
 
 cv2.imshow('predicted image', np.reshape(teX[10], (16,16)))
 cv2.waitKey(0)
+
+#model.save("mlt_model")
