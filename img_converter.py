@@ -9,6 +9,8 @@ def convert_img(img):
 
     ret, cvtd_img = cv2.threshold(img.astype(np.uint8), threshold, 255, cv2.THRESH_BINARY_INV)
 
+    print(ret)
+
     converted_image = cv2.resize(cvtd_img, (16,16), interpolation=cv2.INTER_AREA)
 
     return converted_image
@@ -32,7 +34,7 @@ if __name__ == '__main__':
         #print(type(cvt_list))
         print(f'{img_file} converted.')
         
-    with open('test_lane.p', 'wb') as f:   
-        pickle.dump(cvt_list, f)
+    #with open('test_lane.p', 'wb') as f:   
+        #pickle.dump(cvt_list, f)
 
-    print('All data saved.')
+    #print('All data saved.')

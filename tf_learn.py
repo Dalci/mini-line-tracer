@@ -5,12 +5,9 @@ __author__ = 'will'
 
 from keras.models import Sequential
 from keras.layers import Dense
-#from sklearn.model_selection import train_test_split
 
 import numpy as np
-#import pandas as pd
 import tensorflow as tf
-#import pickle
 from get_image import *
 
 class DNN_Driver():
@@ -18,12 +15,11 @@ class DNN_Driver():
         self.trX = None
         self.trY = None
         self.teX = None
-        self.teY = None
         self.model = None
 
     def tf_learn(self):
         self.trX, self.trY = get_training_data()
-        self.teX, self.teY = get_test_data()
+        self.teX = get_test_data()
 
         seed = 0
         np.random.seed(seed)

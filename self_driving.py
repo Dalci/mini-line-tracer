@@ -15,45 +15,23 @@ class SelfDriving:
         self.rc_car_cntl = RC_Car_Interface()
         self.dnn_driver = DNN_Driver()
 
-        self.rc_car_cntl.set_left_speed(0)
-        self.rc_car_cntl.set_right_speed(0)
+        self.rc_car_cntl.halt()
     
         self.velocity = 0
         self.direction = 0
     
         self.dnn_driver.tf_learn()
+        print('Start Learning...')
     
     def rc_car_control(self, degree):
         #calculate left and right wheel speed with direction
-        #if -40 < direction and direction < -50:
-
-        
 
         if degree < -30.0:
-            direction = -1.0
+            self.rc_car_cntl.turn_right()
         if degree > 30.0:
-            direction = 1.0
-        # if degree < 0.0:
-            # left_speed = 1.0+direction
-            # right_speed = 1.0
-
+            self.rc_car_cntl.turn_left()
         else:
-            direction = 0.0
-            right_speed = 1.0-direction
-            left_speed = 1.0
-
-        # self.rc_car_cntl.set_right_speed(right_speed)
-        # self.rc_car_cntl.set_left_speed(left_speed)
-
-        if degree < -30.0:
-            self.rc_car_cntl.set_right_speed(250)
-            self.rc_car_cntl.set_left_speed(50)
-        if degree > 30.0:
-            self.rc_car_cntl.set_right_speed(50)
-            self.rc_car_cntl.set_left_speed(250)
-        else:
-            self.rc_car_cntl.set_right_speed(250)
-            self.rc_car_cntl.set_left_speed(250)
+            self.rc_car_cntl.go_forward()
 
     def drive(self):
         while True:
