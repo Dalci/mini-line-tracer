@@ -22,7 +22,6 @@ model.add(Dense(64, activation='relu'))
 model.add(Dense(1))
 
 model.compile(loss='mean_squared_error', optimizer='adam')
-#model.compile(loss='sparse_categorical_crossentropy', optimizer='adam')
 
 model.fit(trX, trY, epochs=30, batch_size=1)
 

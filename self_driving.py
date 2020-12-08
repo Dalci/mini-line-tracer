@@ -26,12 +26,14 @@ class SelfDriving:
     def rc_car_control(self, degree):
         #calculate left and right wheel speed with direction
 
-        if degree < -30.0:
+        if -90.0 < degree and degree < -30.0:
             self.rc_car_cntl.turn_right()
-        if degree > 30.0:
+        elif 90.0 > degree and degree > 30.0:
             self.rc_car_cntl.turn_left()
-        else:
+        elif 30 > degree and degree > -30:
             self.rc_car_cntl.go_forward()
+        else:
+            self.rc_car_cntl.go_backward()
 
     def drive(self):
         while True:

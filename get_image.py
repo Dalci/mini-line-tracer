@@ -2,11 +2,12 @@ import pickle
 import numpy as np
 
 def get_training_data():
-    training_data = pickle.load( open( "re_lane.p", "rb" ), encoding="latin1" )
+    training_data = pickle.load( open( "list_empty.p", "rb" ), encoding="latin1" )
 
     n_images = len(training_data)
 
-    trX = np.array([np.reshape(a[1], a[1].shape[0]**2) for a in training_data])
+    #trX = np.array([np.reshape(a[1], a[1].shape[0]**2) for a in training_data])
+    trX = np.array([a[1] for a in training_data])
     
     trY = np.zeros((len(training_data)),dtype=np.float)
     for i, data in enumerate(training_data):
@@ -15,7 +16,7 @@ def get_training_data():
 
 def get_test_data():
     test_data = pickle.load(open("test_lane.p", "rb"))
-    teX = np.array([np.reshape(a, a.shape[0]**2) for a in test_data])
+    teX = np.array([np.reshape(a[1], a[1].shape[0]**2) for a in test_data])
     
     return teX
 

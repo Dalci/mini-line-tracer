@@ -22,13 +22,14 @@ np.random.seed(seed)
 tf.random.set_seed(seed)
 
 model=Sequential()
-model.add(Dense(512, input_dim=np.shape(trX), activation='relu'))
+#model.add(Dense(512, input_dim=np.shape(trX)[1], activation='relu'))
+model.add(Dense(512, input_dim=256, activation='relu'))
 model.add(Dense(64, activation='relu'))
 model.add(Dense(1))
 
 model.compile(loss='mean_squared_error', optimizer='adam')
 
-model.fit(trX, trY, epochs=2, batch_size=1)
+model.fit(trX, trY, epochs=30, batch_size=1)
 
 Y_prediction = model.predict(teX).flatten()
 
@@ -38,12 +39,14 @@ for i in range(1000):
     print("label:{:.2f}, pred:{:.2f}".format(label, pred))
 
 
-def get_direction(img):
-    print(img.shape)
-    #img = np.array([np.reshape(img, img.shape**2)])
-    ret =  model.predict(np.array([img]))
-    return ret
+# def get_direction(img):
+#     print(img.shape)
+#     img = np.array([np.reshape(img, img.shape**2)])
+#     ret =  model.predict(np.array([img]))
+#     return ret
 
 # Predict direction with single image
-dir=get_direction([teX[10]])
-print(dir[0][0])
+#dir=get_direction([teX[10]])
+#print(dir[0][0])
+
+model.save("mlt_model2")
