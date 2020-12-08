@@ -1,3 +1,6 @@
+'''
+ 일원화된 라벨링 이미지 데이터셋에서 학습 및 테스트를 수행하는 프로그램.
+'''
 __author__ = 'will'
 
 from keras.models import Sequential

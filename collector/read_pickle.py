@@ -2,12 +2,15 @@ import pickle
 import cv2
 import numpy as np
 
-with open('empty_lane16.p', 'rb') as f:
+PICKLE_NAME = 'lane2.p'
+
+with open(PICKLE_NAME , 'rb') as f:
     imgs = pickle.load(f)
 
 print(np.shape(imgs))
 # print(imgs)
 for label, img in imgs:
+    # remove comment if the img is 1D list
     #img = img.reshape((16,16) ,order='C')
     print(img)
     print('label: ', label)

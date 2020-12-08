@@ -4,12 +4,14 @@ from keras.models import load_model
 import pickle
 import cv2
 
+SAVED_KERAS = "mlt_model"
+
 class DNN_Driver():
     def __init__(self):
         self.model = None
 
     def load(self):
-        self.model = load_model("mlt_model")
+        self.model = load_model(SAVED_KERAS)
 		
     def predict_direction(self, img):
         #print(img.shape)
@@ -17,6 +19,7 @@ class DNN_Driver():
         ret =  self.model.predict(np.array([img]))
         return ret[0][0][0]
 
+# code to test
 # dd = DNN_Driver()
 # dd.load()
 # with open('test_lane.p', 'rb') as f:

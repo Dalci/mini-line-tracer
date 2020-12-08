@@ -10,7 +10,7 @@ def convert_img(img):
 
     ret, cvtd_img = cv2.threshold(img.astype(np.uint8), threshold, 255, cv2.THRESH_BINARY)
 
-    print(ret)
+    #print(cvtd_img)
     return cvtd_img
     #converted_image = cv2.resize(cvtd_img, (16,16), interpolation=cv2.INTER_AREA)
 
@@ -18,12 +18,13 @@ def convert_img(img):
 
 if __name__ == '__main__':
 
-    current = os.path.dirname(__file__)
-    print(current)
+    #current = os.path.dirname(__file__)
+    #print(current)
 
     img_list = list()
 
-    with open(os.path.join(current,'list_empty.p'), 'rb') as f:
+    #with open(os.path.join(current,'list_empty.p'), 'rb') as f:
+    with open('lane2.p', 'rb') as f:
         img_list = pickle.load(f)
 
     cvt_list = []
@@ -41,7 +42,7 @@ if __name__ == '__main__':
         #print(converted_image)
         #print(f'{img_file} converted.')
         
-    with open('empty_lane16.p', 'wb') as f:   
+    with open('lane2_thres.p', 'wb') as f:   
         pickle.dump(cvt_list, f)
 
     print('All data saved.')

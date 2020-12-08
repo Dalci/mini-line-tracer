@@ -4,7 +4,7 @@
 __author__ = 'will'
 
 from rc_car_interface import RC_Car_Interface
-from tf_learn import DNN_Driver
+from loaded_learn import DNN_Driver
 import numpy as np
 import time
 import cv2
@@ -20,7 +20,7 @@ class SelfDriving:
         self.velocity = 0
         self.direction = 0
     
-        self.dnn_driver.tf_learn()
+        self.dnn_driver.load()
         print('Start Learning...')
     
     def rc_car_control(self, degree):
