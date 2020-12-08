@@ -48,8 +48,8 @@ class SelfDriving:
             img = np.reshape(img,img.shape[0]**2)
 
             direction = self.dnn_driver.predict_direction(img)         # predict with single image
-            print(direction[0][0])
-            self.rc_car_control(direction[0][0])
+            print(direction)
+            self.rc_car_control(direction)
 
             # For debugging, show image
 #            cv2.imshow("target",  cv2.resize(img, (280, 280)) )

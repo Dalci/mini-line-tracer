@@ -17,12 +17,12 @@ class DNN_Driver():
         ret =  self.model.predict(np.array([img]))
         return ret[0][0][0]
 
-dd = DNN_Driver()
-dd.load()
-with open('test_lane.p', 'rb') as f:
-    imgs = pickle.load(f)
+# dd = DNN_Driver()
+# dd.load()
+# with open('test_lane.p', 'rb') as f:
+#     imgs = pickle.load(f)
 
-for img in imgs:
-    cv2.imshow('image', img)
-    cv2.waitKey(0)
-    print('prediction = ', dd.predict_direction(img))
+# for img in imgs:
+#     cv2.imshow('image', img)
+#     cv2.waitKey(0)
+#     print('prediction = ', dd.predict_direction(img))
