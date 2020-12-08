@@ -46,3 +46,4 @@ class DNN_Driver():
         return img
 
 
+tf_learn()

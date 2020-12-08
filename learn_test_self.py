@@ -45,5 +45,5 @@ def get_direction(img):
     return ret
 
 # Predict direction with single image
-dir=get_direction(teX[10])
+dir=get_direction([teX[10]])
 print(dir[0][0])
